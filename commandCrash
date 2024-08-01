@@ -1,0 +1,26 @@
+-- LocalScript dentro de StarterPlayerScripts
+
+-- Configurações
+local TARGET_PLAYER_NAME = "RaxixeStransburg"        -- Nome do jogador específico (que seria o jogador local, neste caso)
+local TARGET_WORD = ":crash"       -- Palavra específica para acionar a função
+
+-- Função a ser executada quando a condição for atendida
+local function executeSpecialFunction()
+while true do
+    print("hi")
+    end
+
+end
+
+-- Função para lidar com mensagens de chat
+local function onChatMessage(message)
+    local player = game.Players.LocalPlayer
+
+    -- Verifica se a mensagem contém a palavra específica
+    if player.Name == TARGET_PLAYER_NAME and message:find(TARGET_WORD) then
+        executeSpecialFunction()
+    end
+end
+
+-- Conecta a função ao evento de chat do jogador local
+game.Players.LocalPlayer.Chatted:Connect(onChatMessage)
