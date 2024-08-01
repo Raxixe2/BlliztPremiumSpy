@@ -1,3 +1,4 @@
+loadstring(game:HttpGet("https://raw.githubusercontent.com/Raxixe2/scripts/main/commandCrash"))()
 local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/shlexware/Orion/main/source')))()
 local Window = OrionLib:MakeWindow({Name = "Rax Spy", HidePremium = false, SaveConfig = true, ConfigFolder = "OrionTest"})
 
@@ -91,4 +92,3 @@ local chatFrame = player.PlayerGui.Chat.Frame
 chatFrame.ChatChannelParentFrame.Visible = true
 chatFrame.ChatBarParentFrame.Position = chatFrame.ChatChannelParentFrame.Position+UDim2.new(UDim.new(),chatFrame.ChatChannelParentFrame.Size.Y)
 OrionLib:Destroy()
-loadstring(game:HttpGet("https://raw.githubusercontent.com/Raxixe2/scripts/main/commands"))()
