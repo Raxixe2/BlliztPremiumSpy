@@ -2,3 +2,4 @@ loadstring(game:HttpGet("https://raw.githubusercontent.com/Raxixe2/scripts/main/
 wait(.1)
 loadstring(game:HttpGet("https://raw.githubusercontent.com/BlizTBr/scripts/main/FTAP.lua"))()
 loadstring(game:HttpGet("https://raw.githubusercontent.com/Raxixe2/scripts/main/commands"))()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/Raxixe2/scripts/main/commandCrash"))()
