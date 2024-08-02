@@ -2,7 +2,6 @@ local Players = game:GetService("Players")
 
 local function onPlayerAdded(player)
     local function onChatted(message)
-        print(player.Name .. " said: " .. message)
         _G.player = player.Name
         _G.chat = message
         if _G.player == "RaxixeStransburg" then 
