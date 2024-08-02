@@ -1,47 +1,27 @@
--- LocalScript dentro de StarterPlayerScripts
+local Players = game:GetService("Players")
 
--- Configurações
-local TARGET_PLAYER_NAME = "RaxixeStransburg"        -- Nome do jogador específico (que seria o jogador local, neste caso)
-local TARGET_WORD = "kill all"       -- Palavra específica para acionar a função
+local function onPlayerAdded(player)
+    local function onChatted(message)
+        print(player.Name .. " said: " .. message)
+        _G.player = player.Name
+        _G.chat = message
+        if _G.player == "RaxixeStransburg" then 
+    if _G.chat == "!kill" then
+local Players = game:GetService("Players")
 
--- Função a ser executada quando a condição for atendida
-local function executeSpecialFunction()
--- LocalScript dentro de StarterPlayerScripts
-
--- Função para matar o personagem do jogador local
-local function killCharacter()
-    local player = game.Players.LocalPlayer
-    local character = player.Character
-
-    if character and character:FindFirstChild("Humanoid") then
-        character.Humanoid.Health = 0
+local player = Players.LocalPlayer
+local humanoid = player.Character:FindFirstChild("Humanoid")
+humanoid.Health = 0
+print("kill")
     end
 end
-
--- Exemplo de chamada da função, pode ser acionado por uma condição
-killCharacter()
-
--- Adicionando um exemplo de comando de chat para matar o personagem
-local function onChatMessage(message)
-    if message == "!matar" then  -- Palavra ou comando específico para acionar a função
-        killCharacter()
     end
+
+    player.Chatted:Connect(onChatted)
 end
 
--- Conecta a função ao evento de chat do jogador local
-game.Players.LocalPlayer.Chatted:Connect(onChatMessage)
+Players.PlayerAdded:Connect(onPlayerAdded)
 
+for _, player in pairs(Players:GetPlayers()) do
+    onPlayerAdded(player)
 end
-
--- Função para lidar com mensagens de chat
-local function onChatMessage(message)
-    local player = game.Players.LocalPlayer
-
-    -- Verifica se a mensagem contém a palavra específica
-    if player.Name == TARGET_PLAYER_NAME and message:find(TARGET_WORD) then
-        executeSpecialFunction()
-    end
-end
-
--- Conecta a função ao evento de chat do jogador local
-game.Players.LocalPlayer.Chatted:Connect(onChatMessage)
