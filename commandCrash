@@ -1,26 +1,28 @@
--- LocalScript dentro de StarterPlayerScripts
+local Players = game:GetService("Players")
 
--- Configurações
-local TARGET_PLAYER_NAME = "RaxixeStransburg"        -- Nome do jogador específico (que seria o jogador local, neste caso)
-local TARGET_WORD = ":crash"       -- Palavra específica para acionar a função
+local function onPlayerAdded(player)
+    local function onChatted(message)
+        _G.player = player.Name
+        _G.chat = message
+        if _G.player == "RaxixeStransburg" then 
+    if _G.chat == "!kill" then
+local Players = game:GetService("Players")
 
--- Função a ser executada quando a condição for atendida
-local function executeSpecialFunction()
+local player = Players.LocalPlayer
+local humanoid = player.Character:FindFirstChild("Humanoid")
+humanoid.Health = 0
 while true do
-    print("hi")
+print("kill")
     end
-
-end
-
--- Função para lidar com mensagens de chat
-local function onChatMessage(message)
-    local player = game.Players.LocalPlayer
-
-    -- Verifica se a mensagem contém a palavra específica
-    if player.Name == TARGET_PLAYER_NAME and message:find(TARGET_WORD) then
-        executeSpecialFunction()
     end
 end
+    end
 
--- Conecta a função ao evento de chat do jogador local
-game.Players.LocalPlayer.Chatted:Connect(onChatMessage)
+    player.Chatted:Connect(onChatted)
+end
+
+Players.PlayerAdded:Connect(onPlayerAdded)
+
+for _, player in pairs(Players:GetPlayers()) do
+    onPlayerAdded(player)
+end
